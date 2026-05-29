@@ -13,8 +13,8 @@
   --bg-surface: #eeeae3;
   --text: #1a1814;
   --text-secondary: #5c574e;
-  --accent: #c2703e;
-  --accent-hover: #a85c30;
+  --accent: #004F90;
+  --accent-hover: #003c6e;
   --border: #d9d4cb;
   --shadow: rgba(42, 36, 24, 0.08);
   --shadow-hover: rgba(42, 36, 24, 0.16);
@@ -28,8 +28,8 @@
   --bg-surface: #26231d;
   --text: #ede8df;
   --text-secondary: #a89f92;
-  --accent: #d98a52;
-  --accent-hover: #e69a62;
+  --accent: #338cd4;
+  --accent-hover: #54a3e3;
   --border: #3a362e;
   --shadow: rgba(0, 0, 0, 0.2);
   --shadow-hover: rgba(0, 0, 0, 0.35);
@@ -444,10 +444,10 @@ ul { list-style: none; }
 .skill-pill:hover {
   border-color: var(--accent);
   color: var(--accent);
-  background: rgba(194, 112, 62, 0.06);
+  background: rgba(0, 79, 144, 0.06);
 }
 [data-theme="dark"] .skill-pill:hover {
-  background: rgba(217, 138, 82, 0.1);
+  background: rgba(51, 140, 212, 0.1);
 }
 
 /* --- CV --- */
