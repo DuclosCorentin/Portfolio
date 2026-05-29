@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les Ardentes 2026 — Corentin</title>
+  <meta name="description" content="Campagne de communication fictive et non-officielle réalisée par Corentin pour l'édition 2026 du festival Les Ardentes. Supports imprimés et numériques.">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .project-gallery__grid a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+    }
+    .project-gallery__grid a:hover {
+      transform: scale(1.025);
+      box-shadow: 0 12px 32px var(--shadow-hover);
+    }
+    .project-gallery__grid a img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border: none;
+    }
+    .project-gallery__grid a:first-child {
+      grid-row: span 2;
+    }
+
+    /* --- Styles Lightbox --- */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(26, 24, 20, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .lightbox__content {
+      max-width: 85vw;
+      max-height: 80vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox__content img {
+      max-width: 100%;
+      max-height: 105%;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+      transform: scale(0.95);
+      transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .lightbox.active .lightbox__content img {
+      transform: scale(1);
+    }
+    .lightbox__close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      font-size: 40px;
+      color: #ede8df;
+      opacity: 0.6;
+      transition: opacity 0.25s, transform 0.25s;
+      z-index: 1010;
+    }
+    .lightbox__close:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    .lightbox__nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 44px;
+      color: #ede8df;
+      opacity: 0.5;
+      padding: 20px;
+      transition: opacity 0.25s, transform 0.25s, color 0.25s;
+      z-index: 1010;
+    }
+    .lightbox__nav:hover {
+      opacity: 1;
+      color: var(--accent);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .lightbox__nav--prev { left: 24px; }
+    .lightbox__nav--next { right: 24px; }
+    
+    @media (max-width: 768px) {
+      .lightbox__nav { padding: 10px; font-size: 32px; }
+      .lightbox__nav--prev { left: 8px; }
+      .lightbox__nav--next { right: 8px; }
+      .lightbox__close { top: 16px; right: 16px; font-size: 32px; }
+      .lightbox__content { max-width: 90vw; max-height: 70vh; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" role="navigation"><a href="../index.html" class="nav__logo" aria-label="Accueil"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path class="nav__logo-fill" d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14c1.1 0 2-.9 2-2s-.9-2-2-2C10.486 26 6 21.514 6 16S10.486 6 16 6c4.08 0 7.63 2.45 9.17 5.96.37.85-.03 1.84-.88 2.21-.85.37-1.84-.03-2.21-.88C20.94 10.64 18.64 9 16 9c-3.86 0-7 3.14-7 7s3.14 7 7 7c1.1 0 2 .9 2 2s-.9 2-2 2c-6.07 0-11-4.93-11-11S9.93 5 16 5c5.19 0 9.55 3.61 10.7 8.44.22.96-.38 1.92-1.34 2.14-.96.22-1.92-.38-2.14-1.34C22.38 10.86 19.45 9 16 9"/></svg></a><div id="nav-links" class="nav__links"><a href="../index.html#projets" class="nav__link">Projets</a><a href="../index.html#contact" class="nav__link">Contact</a><button id="theme-toggle" class="theme-toggle" aria-label="Thème"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button></div></nav>
+
+  <main>
+    <section class="project-hero">
+      <a href="../index.html#projets" class="back-link reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>Retour aux projets</a>
+      <img src="../assets/project-ardentes-affiche.jpg" alt="Campagne Les Ardentes 2026" width="1200" height="514" loading="eager" class="project-hero__banner">
+      <h1 class="project-hero__title reveal">Les Ardentes</h1>
+      <p class="project-hero__type reveal">Campagne fictive · Identité Visuelle</p>
+    </section>
+
+    <section class="project-info"><div class="project-info__grid">
+      <div class="project-info__description reveal">
+        <h2>À propos du projet</h2>
+        <p>Le festival <strong>Les Ardentes</strong> est l'un des événements musicaux hip-hop les plus emblématiques d'Europe. Cette campagne de communication non-officielle pour l'édition <strong>2026</strong> a été conçue pour imaginer une identité visuelle moderne, énergique et immersive, en résonance étroite avec l'atmosphère vibrante des concerts live.</p>
+        <p>Le projet s'articule autour de la déclinaison d'une identité graphique forte sur trois supports complémentaires : une affiche grand format présentant la programmation, un ticket physique collector avec numérotation de série, et une carte d'invitation officielle.</p>
+        <p>La direction artistique s'appuie sur une esthétique forte mettant en valeur une photographie immersive de foule lors d'un concert de rap. Pour la présentation sur le portfolio, les maquettes des supports sont mises en scène sur un arrière-plan de présentation violet et fuchsia vibrant qui rappelle l'ambiance des scènes. Le logo graffiti blanc contraste parfaitement avec le visuel, tandis que les logos officiels (Coca-Cola, Red Bull, Kappa) et le QR code apportent un grand réalisme aux créations.</p>
+      </div>
+      <aside class="project-meta reveal">
+        <div class="project-meta__item"><span class="project-meta__label">Type</span><span class="project-meta__value">Campagne fictive</span></div>
+        <div class="project-meta__item"><span class="project-meta__label">Supports</span><span class="project-meta__value">Affiche, Ticket & Invitation</span></div>
+        <div class="project-meta__item"><span class="project-meta__label">Année</span><span class="project-meta__value">2026</span></div>
+        <div class="project-meta__item"><span class="project-meta__label">Rôle</span><span class="project-meta__value">Direction artistique & design graphique</span></div>
+        <div class="project-meta__item"><span class="project-meta__label">Outils</span><span class="project-meta__value">Adobe Photoshop & Adobe Illustrator</span></div>
+      </aside>
+    </div></section>
+ 
+    <section class="project-gallery reveal">
+      <p class="project-video__label">Supports visuels</p>
+      <div class="project-gallery__grid">
+        <a href="../assets/project-ardentes-affiche.jpg" target="_blank" aria-label="Voir l'affiche en taille réelle"><img src="../assets/project-ardentes-affiche.jpg" alt="Affiche de la campagne fictive Les Ardentes 2026" width="600" height="800" loading="lazy"></a>
+        <a href="../assets/project-ardentes-ticket.jpg" target="_blank" aria-label="Voir le ticket collector en taille réelle"><img src="../assets/project-ardentes-ticket.jpg" alt="Ticket physique collector Les Ardentes 2026" width="600" height="400" loading="lazy"></a>
+        <a href="../assets/project-ardentes-invitation.jpg" target="_blank" aria-label="Voir l'invitation officielle en taille réelle"><img src="../assets/project-ardentes-invitation.jpg" alt="Invitation officielle Les Ardentes 2026" width="600" height="400" loading="lazy"></a>
+      </div>
+    </section>
+ 
+    <section class="project-process reveal"><h2>Processus créatif</h2><div class="project-process__steps">
+      <div class="process-step"><span class="process-step__number">01</span><h3 class="process-step__title">Recherche & DA</h3><p class="process-step__text">Analyse de l'univers visuel du festival, définition de la charte graphique et intégration du logo graffiti blanc officiel.</p></div>
+      <div class="process-step"><span class="process-step__number">02</span><h3 class="process-step__title">Design de l'affiche</h3><p class="process-step__text">Intégration de la photographie de foule en concert, mise en page épurée des artistes programmés et calage des détails légaux.</p></div>
+      <div class="process-step"><span class="process-step__number">03</span><h3 class="process-step__title">Déclinaison imprimée</h3><p class="process-step__text">Création du ticket physique avec l'ajout de détails réalistes tels que le numéro de série et le QR code de contrôle.</p></div>
+      <div class="process-step"><span class="process-step__number">04</span><h3 class="process-step__title">Déclinaison invitation</h3><p class="process-step__text">Conception d'une carte d'invitation officielle épurée avec une mise en page claire et l'ajout d'une zone nominative personnalisée.</p></div>
+    </div></section>
+
+    <nav class="project-nav" aria-label="Navigation entre projets"><div class="project-nav__inner">
+      <a href="caramel-pomme.html" class="project-nav__link"><span class="project-nav__link-label">Précédent</span><span class="project-nav__link-title">Caramel de Pomme</span></a>
+      <a href="capsule.html" class="project-nav__link project-nav__link--next"><span class="project-nav__link-label">Suivant</span><span class="project-nav__link-title">Capsule</span></a>
+    </div></nav>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-label="Agrandissement de l'image" aria-hidden="true">
+    <button id="lightbox-close" class="lightbox__close" aria-label="Fermer">&times;</button>
+    <button id="lightbox-prev" class="lightbox__nav lightbox__nav--prev" aria-label="Image précédente">&#10094;</button>
+    <div class="lightbox__content">
+      <img id="lightbox-img" src="" alt="">
+    </div>
+    <button id="lightbox-next" class="lightbox__nav lightbox__nav--next" aria-label="Image suivante">&#10095;</button>
+  </div>
+
+  <script src="../script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = Array.from(document.querySelectorAll('.project-gallery__grid a'));
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const closeBtn = document.getElementById('lightbox-close');
+      const prevBtn = document.getElementById('lightbox-prev');
+      const nextBtn = document.getElementById('lightbox-next');
+      let currentIndex = 0;
+
+      function showImage(index) {
+        if (index < 0) index = links.length - 1;
+        if (index >= links.length) index = 0;
+        currentIndex = index;
+        const targetLink = links[currentIndex];
+        lightboxImg.src = targetLink.href;
+        lightboxImg.alt = targetLink.querySelector('img').alt;
+      }
+
+      links.forEach((link, index) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          showImage(index);
+          lightbox.classList.add('active');
+          lightbox.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden'; // prevent background scroll
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      closeBtn.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target === lightbox.querySelector('.lightbox__content')) {
+          closeLightbox();
+        }
+      });
+
+      prevBtn.addEventListener('click', () => showImage(currentIndex - 1));
+      nextBtn.addEventListener('click', () => showImage(currentIndex + 1));
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+        if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+      });
+    });
+  </script>
+</body>
+</html>
