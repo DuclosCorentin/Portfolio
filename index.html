@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corentin — Monteur Vidéo & Communication</title>
+  <meta name="description" content="Portfolio de Corentin, monteur vidéo et étudiant en communication à la recherche d'une alternance. Montage, color grading, post-production audio.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>C</text></svg>">
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" role="navigation" aria-label="Navigation principale">
+    <a href="#" class="nav__logo" aria-label="Corentin — Accueil">
+      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path class="nav__logo-fill" d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14c1.1 0 2-.9 2-2s-.9-2-2-2C10.486 26 6 21.514 6 16S10.486 6 16 6c4.08 0 7.63 2.45 9.17 5.96.37.85-.03 1.84-.88 2.21-.85.37-1.84-.03-2.21-.88C20.94 10.64 18.64 9 16 9c-3.86 0-7 3.14-7 7s3.14 7 7 7c1.1 0 2 .9 2 2s-.9 2-2 2c-6.07 0-11-4.93-11-11S9.93 5 16 5c5.19 0 9.55 3.61 10.7 8.44.22.96-.38 1.92-1.34 2.14-.96.22-1.92-.38-2.14-1.34C22.38 10.86 19.45 9 16 9"/>
+      </svg>
+    </a>
+
+    <button id="nav-burger" class="nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div id="nav-links" class="nav__links">
+      <a href="#a-propos" class="nav__link">À propos</a>
+      <a href="#projets" class="nav__link">Projets</a>
+      <a href="#competences" class="nav__link">Compétences</a>
+      <a href="#cv" class="nav__link">CV</a>
+      <a href="#contact" class="nav__link">Contact</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <h1 class="hero__name">Corentin</h1>
+      <p class="hero__title">Monteur Vidéo & Communication</p>
+      <p class="hero__tagline">Donner du rythme aux idées, du sens aux images.</p>
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ===== À PROPOS ===== -->
+    <section class="section about" id="a-propos">
+      <div class="about__content">
+        <div class="about__text reveal">
+          <p class="section__label">À propos</p>
+          <h2 class="section__heading">Raconter des histoires<br>à travers le montage.</h2>
+          <p>Étudiant en communication et passionné de montage vidéo, je crée des récits visuels qui captent l'attention et transmettent un message clair. Du court-métrage au contenu digital, j'apporte un regard sensible au rythme, à la couleur et au son. Je suis actuellement à la recherche d'une alternance pour approfondir mon savoir-faire au sein d'une équipe créative.</p>
+        </div>
+        <div class="about__visual reveal">
+          <div class="about__accent-block">
+            <span>C.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJETS ===== -->
+    <section class="section section--wide projects" id="projets">
+      <p class="section__label reveal">Réalisations</p>
+      <h2 class="section__heading reveal">Projets sélectionnés</h2>
+
+      <div class="projects__grid">
+        <!-- Card 1 — Large -->
+        <a href="projects/fragments.html" class="project-card reveal">
+          <div class="project-card__img-wrap">
+            <img src="assets/project-shortfilm.png" alt="Image du court-métrage Fragments" width="800" height="450" loading="lazy">
+            <div class="project-card__overlay">
+              <p>Court-métrage expérimental tourné en lumière naturelle. Travail approfondi sur le color grading et le sound design pour créer une atmosphère intimiste.</p>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Fragments</h3>
+            <p class="project-card__meta">Court-métrage · Premiere Pro, DaVinci Resolve</p>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="projects/eclats.html" class="project-card reveal">
+          <div class="project-card__img-wrap">
+            <img src="assets/project-musicvideo.png" alt="Image du clip musical Éclats" width="800" height="450" loading="lazy">
+            <div class="project-card__overlay">
+              <p>Clip réalisé pour un artiste indépendant. Montage rythmé synchronisé sur la musique avec effets de motion graphics.</p>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Éclats</h3>
+            <p class="project-card__meta">Clip musical · Premiere Pro, After Effects</p>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="projects/horizon.html" class="project-card reveal">
+          <div class="project-card__img-wrap">
+            <img src="assets/project-corporate.png" alt="Image de la vidéo corporate Horizon" width="800" height="450" loading="lazy">
+            <div class="project-card__overlay">
+              <p>Vidéo de présentation corporate pour une startup tech. Interviews, motion design et narration visuelle.</p>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Horizon</h3>
+            <p class="project-card__meta">Corporate · Premiere Pro, Audition</p>
+          </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="projects/capsule.html" class="project-card reveal">
+          <div class="project-card__img-wrap">
+            <img src="assets/project-social.png" alt="Image de la campagne social media Capsule" width="800" height="450" loading="lazy">
+            <div class="project-card__overlay">
+              <p>Série de capsules vidéo pour les réseaux sociaux. Format vertical, sous-titres dynamiques et branding cohérent.</p>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Capsule</h3>
+            <p class="project-card__meta">Social Media · Premiere Pro, Canva</p>
+          </div>
+        </a>
+
+        <!-- Card 5 -->
+        <a href="projects/terres.html" class="project-card reveal">
+          <div class="project-card__img-wrap">
+            <img src="assets/project-documentary.png" alt="Image du documentaire Terres" width="800" height="450" loading="lazy">
+            <div class="project-card__overlay">
+              <p>Mini-documentaire sur l'agriculture locale. Captation, montage narratif et post-production audio complète.</p>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Terres</h3>
+            <p class="project-card__meta">Documentaire · DaVinci Resolve, Audition</p>
+          </div>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- ===== COMPÉTENCES ===== -->
+    <section class="section skills" id="competences">
+      <p class="section__label reveal">Compétences</p>
+      <h2 class="section__heading reveal">Outils & savoir-faire</h2>
+      <div class="skills__list reveal">
+        <span class="skill-pill">Adobe Premiere Pro</span>
+        <span class="skill-pill">Adobe Audition</span>
+        <span class="skill-pill">DaVinci Resolve</span>
+        <span class="skill-pill">Color Grading</span>
+        <span class="skill-pill">Post-production Audio</span>
+        <span class="skill-pill">Motion Graphics</span>
+        <span class="skill-pill">Communication Digitale</span>
+        <span class="skill-pill">After Effects</span>
+        <span class="skill-pill">Sound Design</span>
+        <span class="skill-pill">Montage Narratif</span>
+      </div>
+    </section>
+
+    <!-- ===== CV ===== -->
+    <section class="section cv" id="cv">
+      <div class="cv__inner reveal">
+        <div class="cv__text">
+          <h3>Envie d'en savoir plus ?</h3>
+          <p>Téléchargez mon CV pour découvrir mon parcours complet.</p>
+        </div>
+        <a href="assets/cv-corentin.pdf" download class="cv__btn" aria-label="Télécharger le CV de Corentin au format PDF">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Télécharger mon CV
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER / CONTACT ===== -->
+  <footer class="footer" id="contact">
+    <div class="footer__inner">
+      <div class="footer__left reveal">
+        <h2>Travaillons ensemble.</h2>
+        <a href="mailto:corentin@email.com" class="footer__email">corentin@email.com</a>
+        <div class="footer__links">
+          <a href="https://linkedin.com/in/corentin" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="LinkedIn de Corentin">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://github.com/corentin" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="GitHub de Corentin">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__right reveal">
+        <p>© 2026 Corentin</p>
+        <p>Fait avec soin.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
