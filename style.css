@@ -615,7 +615,7 @@ ul { list-style: none; }
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: clamp(40px, 6vw, 80px);
-  align-items: start;
+  align-items: center;
 }
 .project-info__description h2 {
   font-family: var(--font-display);
