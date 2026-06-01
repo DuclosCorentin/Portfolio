@@ -109,9 +109,12 @@ ul { list-style: none; }
   height: 32px;
   display: block;
 }
-.nav__logo-fill {
-  fill: var(--text);
-  transition: fill 0.3s;
+.nav__logo {
+  color: var(--text);
+  transition: color 0.3s;
+}
+.nav__logo:hover {
+  color: var(--accent);
 }
 .nav__links {
   display: flex;
