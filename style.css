@@ -338,7 +338,8 @@ ul { list-style: none; }
   margin-top: 48px;
 }
 .project-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   border-radius: 14px;
   overflow: hidden;
   background: var(--bg-surface);
@@ -361,6 +362,7 @@ ul { list-style: none; }
 .project-card__img-wrap {
   position: relative;
   overflow: hidden;
+  flex: 1;
   aspect-ratio: 16/9;
 }
 .project-card__img-wrap img {
