@@ -695,6 +695,28 @@ ul { list-style: none; }
   height: 100%;
   border: 0;
 }
+.project-video__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+.project-video__item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.project-video__title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+@media (max-width: 768px) {
+  .project-video__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
 .project-video__placeholder {
   display: flex;
   flex-direction: column;
